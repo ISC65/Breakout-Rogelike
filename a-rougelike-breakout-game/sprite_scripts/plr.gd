@@ -3,8 +3,7 @@ class_name Paddle
 #above is the class of what instance this is
 
 #declares variales, these are useful
-@export var actualSpeed: float = 500.0
-@export var SPEED: float = actualSpeed
+@export var SPEED: float = 500.0
 @export var deceleration : float  = 300.0
 
 var sprintSpeed: float = SPEED * 2
@@ -28,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("Speed Up"):
 		SPEED = sprintSpeed
 	if Input.is_action_just_released("Speed Up"):
-		SPEED = actualSpeed
+		SPEED = 500.0
 	
 	if direction:
 		velocity.x = direction * SPEED
