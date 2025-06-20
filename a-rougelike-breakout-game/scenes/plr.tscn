@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnkwnpllb0xx7"]
+
+[ext_resource type="Script" uid="uid://d1vqsrli8048o" path="res://sprite_scripts/plr.gd" id="1_48lgo"]
+[ext_resource type="Texture2D" uid="uid://dklhkl3p2eyde" path="res://sprite_art/PaddleButBad.png" id="2_cjvkk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_seiu4"]
+size = Vector2(144, 15.875)
+
+[node name="PLR" type="CharacterBody2D"]
+script = ExtResource("1_48lgo")
+
+[node name="PaddleButBad" type="Sprite2D" parent="."]
+position = Vector2(0, 0.5)
+texture = ExtResource("2_cjvkk")
+
+[node name="right" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.75)
+shape = SubResource("RectangleShape2D_seiu4")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(78, 0)
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+target_position = Vector2(-78, 0)

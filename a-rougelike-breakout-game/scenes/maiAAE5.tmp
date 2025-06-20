@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg88djq3njani"]
+
+[ext_resource type="PackedScene" uid="uid://cnkwnpllb0xx7" path="res://scenes/plr.tscn" id="1_rfruo"]
+
+[node name="main" type="Node"]
+
+[node name="plr" parent="." instance=ExtResource("1_rfruo")]
+position = Vector2(571, 597)
+speed = 1000

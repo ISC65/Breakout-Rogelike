@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6b8f4pektd8f"]
+
+[ext_resource type="Script" uid="uid://b07vkqdm1dpml" path="res://sprite_scripts/brick_generator.gd" id="1_00co7"]
+
+[node name="brick generator" type="Node2D"]
+script = ExtResource("1_00co7")

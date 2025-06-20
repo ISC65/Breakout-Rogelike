@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://dg88djq3njani"]
+
+[ext_resource type="PackedScene" uid="uid://cnkwnpllb0xx7" path="res://scenes/plr.tscn" id="1_rfruo"]
+[ext_resource type="PackedScene" uid="uid://dwicvj6iepph6" path="res://scenes/B A L L.tscn" id="2_2lsfm"]
+[ext_resource type="AudioStream" uid="uid://hivuwcuocuuk" path="res://sounds/Arkanoid SFX (3).wav" id="2_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bb6la38li0hfc" path="res://scenes/brick.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://b6b8f4pektd8f" path="res://scenes/brick_generator.tscn" id="4_jyhfs"]
+[ext_resource type="AudioStream" uid="uid://djuq57b8u145k" path="res://sounds/Arkanoid SFX (6).wav" id="4_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://qcn4dsnwpim" path="res://Palletes/Brick_Green_Pallete.png" id="6_tefeu"]
+[ext_resource type="Texture2D" uid="uid://c356rgxo3y4m3" path="res://sprite_art/pipeCabenet.png" id="8_tipki"]
+
+[node name="main" type="Node"]
+
+[node name="Game Canvas" type="CanvasLayer" parent="."]
+
+[node name="plr" parent="Game Canvas" instance=ExtResource("1_rfruo")]
+position = Vector2(411, 574)
+disable_mode = 2
+collision_layer = 3
+collision_mask = 3
+
+[node name="Marker2D" type="Marker2D" parent="Game Canvas/plr"]
+position = Vector2(-1, -48)
+
+[node name="serve sound" type="AudioStreamPlayer" parent="Game Canvas/plr"]
+stream = ExtResource("2_tbgi4")
+volume_db = -15.33
+
+[node name="B A L L" parent="Game Canvas" instance=ExtResource("2_2lsfm")]
+position = Vector2(1266, 879)
+scale = Vector2(0.75, 0.75)
+
+[node name="bounce sound" type="AudioStreamPlayer" parent="Game Canvas/B A L L"]
+stream = ExtResource("4_o6xl0")
+
+[node name="brickINIT" type="Node2D" parent="Game Canvas"]
+position = Vector2(-709, 441)
+
+[node name="brick" parent="Game Canvas/brickINIT" instance=ExtResource("3_sugp2")]
+z_index = 0
+z_as_relative = false
+position = Vector2(-29, 101)
+
+[node name="brick generator" parent="Game Canvas/brickINIT" instance=ExtResource("4_jyhfs")]
+position = Vector2(2, -84)
+brick_color = ExtResource("6_tefeu")
+Columns = 10
+
+[node name="brick container" type="Node2D" parent="Game Canvas"]
+position = Vector2(147, 201)
+
+[node name="Pipes" type="Area2D" parent="."]
+position = Vector2(-26, 75)
+
+[node name="PipeCabenet" type="Sprite2D" parent="Pipes"]
+z_index = 1
+z_as_relative = false
+position = Vector2(398.5, 397.366)
+texture = ExtResource("8_tipki")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pipes"]
+position = Vector2(398.5, 397.366)
+polygon = PackedVector2Array(234, -476, -234.2, -476, -277.8, -476, -360.8, -476, -376, -460.8, -376, -411.8, -376, -372, -376, -155.8, -385.4, -154, -388.1, -154, -385.9, -116, -376, -116, -376, -27.8, -385.4, -26, -388, -26, -388, 9.70001, -376, 11.7, -376, 260.2, -376, 299.7, -376, 484.2, -375.5, 504.634, -327.5, 504.634, -328, 484, -328, 299.7, -328, 260, -328, 11.7, -318.6, 10, -315.9, 10, -318.1, -28, -328, -28, -328, -116.3, -316, -118.3, -316, -153.7, -328, -155.8, -328, -372.3, -328, -411.8, -328, -424.2, -317.1, -434, -277.8, -434, -234, -434, 234.2, -434, 277.8, -434, 318.1, -434, 328, -423.2, 328, -251.8, 328, -212, 328, -59.8, 328, -20.3, 328, 228.2, 328, 267.7, 328, 484.2, 327.5, 504.634, 375.5, 504.634, 376, 484, 376, 267.7, 376, 228, 376, -20.3, 376, -59.8, 376, -212.3, 376, -251.8, 376, -460.8, 360.8, -476, 277.8, -476)
