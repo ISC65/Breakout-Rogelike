@@ -47,7 +47,7 @@ brick_color = ExtResource("6_tefeu")
 Columns = 10
 
 [node name="brick container" type="Node2D" parent="Game Canvas"]
-position = Vector2(147, 201)
+position = Vector2(76, 177)
 
 [node name="Pipes" type="Area2D" parent="."]
 position = Vector2(-26, 75)
