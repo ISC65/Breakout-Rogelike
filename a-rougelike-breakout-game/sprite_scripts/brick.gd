@@ -4,7 +4,7 @@ class_name Brick
 var types = [
 	"big",
 	"normal",
-	"immune",
+	"durable",
 	"explosive",
 	"brick",
 	"wet"
