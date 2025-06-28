@@ -24,7 +24,7 @@ window/size/viewport_width=745
 window/size/resizable=false
 window/size/borderless=true
 window/stretch/mode="viewport"
-window/stretch/aspect="keep_width"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 

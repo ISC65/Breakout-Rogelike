@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dg88djq3njani"]
+[gd_scene load_steps=8 format=3 uid="uid://dg88djq3njani"]
 
 [ext_resource type="PackedScene" uid="uid://cnkwnpllb0xx7" path="res://scenes/plr.tscn" id="1_rfruo"]
 [ext_resource type="PackedScene" uid="uid://dwicvj6iepph6" path="res://scenes/B A L L.tscn" id="2_2lsfm"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bb6la38li0hfc" path="res://scenes/brick.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://b6b8f4pektd8f" path="res://scenes/brick_generator.tscn" id="4_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://djuq57b8u145k" path="res://sounds/Arkanoid SFX (6).wav" id="4_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://qcn4dsnwpim" path="res://Palletes/Brick_Green_Pallete.png" id="6_tefeu"]
 [ext_resource type="Texture2D" uid="uid://c356rgxo3y4m3" path="res://sprite_art/pipeCabenet.png" id="8_tipki"]
 
 [node name="main" type="Node"]
@@ -43,7 +42,6 @@ position = Vector2(-29, 101)
 
 [node name="brick generator" parent="Game Canvas/brickINIT" instance=ExtResource("4_jyhfs")]
 position = Vector2(2, -84)
-brick_color = ExtResource("6_tefeu")
 Columns = 10
 
 [node name="brick container" type="Node2D" parent="Game Canvas"]
