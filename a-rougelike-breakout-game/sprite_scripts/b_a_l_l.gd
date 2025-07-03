@@ -1,10 +1,11 @@
 extends CharacterBody2D
 class_name Ball
+signal SkillIssue #I wrote some of this code at school by the way 
 
 @export var ball_speed : float = 700.0
 
 @onready var raycast = $RayCast2D
-@onready var sound: AudioStreamPlayer = $"bounce sound"
+@onready var sound: AudioStreamPlayer = $"bounce sound" #placeholder, will get replaced soon
 
 var screensize
 
@@ -25,16 +26,13 @@ func _physics_process(delta):
 		velocity.y /= -1
 		position.y = 0
 	elif position.y > screensize.y:
-		#ball of the ground handling
-		print("Ball went off the bottom!")
-		set_physics_process(false) # Stop the ball
+		SkillIssue.emit()
+		set_physics_process(false) #Stops the ball
 		
 		
-	# Handle collisions with other objects (like the paddle)
+	#Handle collisions with other objects (like the paddle)
 	if collision:
-		# Check if the colliding object is the Paddle
-		if collision.get_collider() is Paddle: # Access the colliding body via 'collider'
-			
+		if collision.get_collider() is Paddle:
 			velocity = global_position - collision.get_collider().global_position
 			
 			# Keep the ball moving at its speed
@@ -47,6 +45,3 @@ func _physics_process(delta):
 				
 			velocity = velocity.bounce((collision.get_normal() / 1.20).normalized())
 			velocity = velocity.normalized() * ball_speed
-
-func is_ball(): # Add this method to identify this script as a Ball
-	return true

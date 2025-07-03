@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dg88djq3njani"]
+[gd_scene load_steps=9 format=3 uid="uid://dg88djq3njani"]
 
 [ext_resource type="PackedScene" uid="uid://cnkwnpllb0xx7" path="res://scenes/plr.tscn" id="1_rfruo"]
+[ext_resource type="Script" uid="uid://ct3f7e72dw6x8" path="res://scenes/main.gd" id="1_tipki"]
 [ext_resource type="PackedScene" uid="uid://dwicvj6iepph6" path="res://scenes/B A L L.tscn" id="2_2lsfm"]
 [ext_resource type="AudioStream" uid="uid://hivuwcuocuuk" path="res://sounds/Arkanoid SFX (3).wav" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bb6la38li0hfc" path="res://scenes/brick.tscn" id="3_sugp2"]
@@ -8,7 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://djuq57b8u145k" path="res://sounds/Arkanoid SFX (6).wav" id="4_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://c356rgxo3y4m3" path="res://sprite_art/pipeCabenet.png" id="8_tipki"]
 
-[node name="main" type="Node"]
+[node name="main_Game Manager" type="Node"]
+script = ExtResource("1_tipki")
 
 [node name="Game Canvas" type="CanvasLayer" parent="."]
 
@@ -59,3 +61,6 @@ texture = ExtResource("8_tipki")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pipes"]
 position = Vector2(398.5, 397.366)
 polygon = PackedVector2Array(234, -476, -234.2, -476, -277.8, -476, -360.8, -476, -376, -460.8, -376, -411.8, -376, -372, -376, -155.8, -385.4, -154, -388.1, -154, -385.9, -116, -376, -116, -376, -27.8, -385.4, -26, -388, -26, -388, 9.70001, -376, 11.7, -376, 260.2, -376, 299.7, -376, 484.2, -375.5, 504.634, -327.5, 504.634, -328, 484, -328, 299.7, -328, 260, -328, 11.7, -318.6, 10, -315.9, 10, -318.1, -28, -328, -28, -328, -116.3, -316, -118.3, -316, -153.7, -328, -155.8, -328, -372.3, -328, -411.8, -328, -424.2, -317.1, -434, -277.8, -434, -234, -434, 234.2, -434, 277.8, -434, 318.1, -434, 328, -423.2, 328, -251.8, 328, -212, 328, -59.8, 328, -20.3, 328, 228.2, 328, 267.7, 328, 484.2, 327.5, 504.634, 375.5, 504.634, 376, 484, 376, 267.7, 376, 228, 376, -20.3, 376, -59.8, 376, -212.3, 376, -251.8, 376, -460.8, 360.8, -476, 277.8, -476)
+
+[connection signal="gameover" from="." to="Game Canvas/brickINIT/brick generator" method="_on_main_game_manager_gameover"]
+[connection signal="SkillIssue" from="Game Canvas/B A L L" to="." method="_on_b_a_l_l_skill_issue"]
